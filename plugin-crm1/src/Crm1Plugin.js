@@ -22,12 +22,24 @@ export default class Crm1Plugin extends FlexPlugin {
   init(flex, manager) {
     this.registerReducers(manager);
 
-    const options = { sortOrder: -1 };
-    flex.AgentDesktopView
-      .Panel1
-      .Content
-      .add(<CustomTaskListContainer key="demo-component" />, options);
+    flex.CRMContainer.defaultProps.uriCallback = (task) => {
+      return task
+        ? `https://bing.com/?q=${task.attributes.name}`
+        : 'https://bing.com';
+    }
+
+
+    // flex.CRMContainer.defaultProps.uriCallback = (task) => {
+    //   // if (task.attributes.name != 0) {
+    //   var attName = task.attributes.name;
+    //   var areaCode = attName.substring(0, 3);
+    //   return task
+    //     ? `https://bing.com/?q=area+code+${areaCode}`
+    //     : 'https://bing.com';
+    //   // }
+    // }
   }
+
 
   /**
    * Registers the plugin reducers
