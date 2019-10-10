@@ -23,32 +23,22 @@ export default class Crm1Plugin extends FlexPlugin {
     this.registerReducers(manager);
 
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
-      if (task) {
-        var attName = task.attributes.name;
-        var areaCode = attName.substring(0, 3);
-        return `https://bing.com/?q=${areaCode}`;
-      } else {
-        return 'https://bing.com';
-      }
-
-      // return task
-      //   ? `https://bing.com/?q=${task.attributes.name}`
-      //   : 'https://bing.com';
+      return task
+        ? `https://bing.com/?q=${task.attributes.name}`
+        : 'https://bing.com';
     }
 
 
     // flex.CRMContainer.defaultProps.uriCallback = (task) => {
-    //   if (task.attributes.name != 0) {
-    // var attName = task.attributes.name;
-    // var areaCode = attName.substring(0, 3);
-    //   }
+    //   // if (task.attributes.name != 0) {
+    //   var attName = task.attributes.name;
+    //   var areaCode = attName.substring(0, 3);
     //   return task
     //     ? `https://bing.com/?q=area+code+${areaCode}`
     //     : 'https://bing.com';
+    //   // }
     // }
   }
-
-
 
 
   /**
