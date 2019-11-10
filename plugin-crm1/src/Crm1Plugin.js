@@ -7,6 +7,18 @@ import reducers, { namespace } from './states';
 
 const PLUGIN_NAME = 'Crm1Plugin';
 
+async function searchAndScreenPop(searchString, Flex, Manager) {
+
+  // proxy URL
+  const CRM_API_KEY = process.env.apiKey;
+  const CRM_API_CONTACTS_BASE_URL = 'https://chiefstattoobookingtech58042.api-us1.com/api/3/contacts';
+  const CRM_UI_CONTACTS_VIEW_BASE_URL = 'https://chiefstattoobookingtech58042.activehosted.com/app/contacts';
+
+  // fetch information by passing searchString
+
+  // push the Contact view based on return value
+}
+
 export default class Crm1Plugin extends FlexPlugin {
   constructor() {
     super(PLUGIN_NAME);
@@ -27,7 +39,7 @@ export default class Crm1Plugin extends FlexPlugin {
 
     flex.CRMContainer.defaultProps.uriCallback = (task) => {
       return task
-        ? `https://chiefstattoobookingtech58042.api-us1.com`
+        ? `https://chiefstattoobookingtech58042.api-us1.com/app/contacts/?q=8015410498`
         // `https://chiefstattoobookingtech58042.activehosted.com/app/contacts?q=8015410498`
         // `https://bing.com/?q=${task.attributes.name}`
         : 'https://chiefstattoobookingtech58042.api-us1.com';
