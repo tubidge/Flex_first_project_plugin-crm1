@@ -50,7 +50,8 @@ export default class Crm1Plugin extends FlexPlugin {
     flex.Actions.addListener("afterAcceptTask",
       (taskPayload, abortFunction) => {
         let searchParameter = taskPayload.task.attrubutes.name;
-        searchAndScreenPop(searchParameter, flex, manager);
+        console.log(`Search Param: ${searchParameter} | Task Atts: ${taskPayload.task.attrubutes}`);
+        // searchAndScreenPop(searchParameter, flex, manager);
       }
     )
 
