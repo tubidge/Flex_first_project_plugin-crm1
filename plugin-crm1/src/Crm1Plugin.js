@@ -7,13 +7,15 @@ import reducers, { namespace } from './states';
 
 const PLUGIN_NAME = 'Crm1Plugin';
 
+// function to perform CRM search
 async function searchAndScreenPop(searchString, Flex, Manager) {
 
   // proxy URL
   const CRM_API_KEY = process.env.apiKey;
-  const CRM_API_CONTACTS_BASE_URL = 'https://chiefstattoobookingtech58042.api-us1.com/api/3/contacts';
+  const CRM_API_CONTACTS_BASE_URL = 'https://chiefstattoobookingtech58042.api-us1.com/api/3/contacts/';
   const CRM_UI_CONTACTS_VIEW_BASE_URL = 'https://chiefstattoobookingtech58042.activehosted.com/app/contacts';
 
+  let searchUrl = 'https://chiefstattoobookingtech58042.api-us1.com/api/3/contacts/1094';
   // fetch information by passing searchString
 
   // push the Contact view based on return value
